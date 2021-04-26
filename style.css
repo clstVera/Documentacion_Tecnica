@@ -1,0 +1,124 @@
+*{
+    box-sizing: border-box;
+}
+
+ body{
+     width: 90%;
+     margin: auto;
+     
+     display: flex;
+     flex-flow: row nowrap;             
+ }
+
+ nav{
+     width: 255px;
+     height: 949px;
+     background: #BFDBF7;
+     line-height: 250%;
+
+     position: fixed;
+     display: flex;
+     flex-flow: column nowrap;
+ }
+
+ nav header{
+    width: 255px;
+    position: fixed;
+}
+
+ nav a {
+    background-color: #1F7A8C;
+    text-decoration: none;
+    padding-left: 10%;        
+ }
+
+a:link { color: #022B3A; }        
+a:visited { color: white; } 
+a:hover { color:#BCB8B1; }
+
+#a{
+    position: relative;
+    top: 41px;
+
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+ main {
+    background: #E1E5F2;
+     width: 80%;     
+     position: relative;
+     left: 256px;
+
+     display: flex;
+     flex-flow: column nowrap;
+}
+
+ header{
+     background:#022B3A;
+     color: white;
+     line-height: 250%;
+     text-align: center;
+ }
+
+ p{
+     padding: 0 5%;
+ }
+
+ pre{
+     width: 80%;
+     margin: auto;
+     padding: 3%;
+     background: #1F7A8C;
+ }
+
+ code{     
+     color:white;
+ }
+
+ code strong{
+     color: #022B3A;
+ }
+
+ code em{
+    color: #E9C46A;
+ }
+
+ ul li{
+     list-style: none;
+     padding: 2% 0;
+ }
+
+ li i strong{
+    color: #022B3A;
+ }
+
+ @media screen and (max-width: 800px) {
+    body{
+        flex-flow: column wrap;
+    }
+    
+    nav{
+        width: 100%;
+        height: auto; 
+        position: static;
+    }
+
+    nav header{
+        width: 100%;
+        position: static;
+    }
+
+    #a{
+        position: static;
+    }
+
+    main {
+        width: 100%;
+        position: static;
+    }
+
+    pre{
+        width: 100%;
+    }
+}

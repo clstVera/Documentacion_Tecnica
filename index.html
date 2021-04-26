@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones | JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <header>Funciones | JavaScript</header>
+        <div id="a">
+            <a href="#funciones" class="nav-link"><i class="fad fa-book"></i> Funciones</a>
+            <a href="#argumentos" class="nav-link"><i class="fad fa-book"></i> Argumentos</a>
+            <a href="#array_de_argumentos" class="nav-link"><i class="fad fa-book"></i> Array de Argumentos</a>
+            <a href="#return" class="nav-link"><i class="fad fa-book"></i> Return</a>
+            <a href="#anonimas" class="nav-link"><i class="fad fa-book"></i> Anónimas</a>
+            <a href="#funciones_especiales" class="nav-link"><i class="fad fa-book"></i> Funciones Especiales</a>
+        </div>
+    </nav>
+
+    <div id="main">
+        <main id="main-doc">
+
+            <section class="main-section" id="funciones">
+                <header>Funciones</header>
+                <p>Hay un momento, en todo desarrollo, que acabas <strong>reutilizando el mismo código</strong> una y
+                    otra
+                    vez. Puede ser que esté formado por un par de líneas o cientos de ellas. A nivel de organización es
+                    más
+                    práctico crear un grupo capaz de ser invocado que ir copiando y pegando en diferentes sitios. Además
+                    que
+                    para modificar es más rápido hacerlo una vez que varias. Esta característica se denomina:
+                    <strong>función</strong>.
+                </p>
+
+                <p>La estructura es la siguiente.</p>
+                <pre><code><strong>function</strong> alias() {
+                // codigo
+            }</code></pre>
+
+                <p>Y para ejecutarlo usaremos el alias con los paréntesis.</p>
+                <pre><code>alias();</code></pre>
+
+                <p>Un ejemplo.</p>
+                <pre><code><strong>function</strong> saludo() {
+                console.log(<em>'Hola a todos'</em>);
+            }
+            
+            saludo();
+            // Hola a todos</code></pre><br>
+            </section>
+
+            <section class="main-section" id="argumentos">
+                <header>Argumentos</header>
+                <p>Es posible personalizar las instrucciones de la función con argumentos y variables al ser invocado.
+                </p>
+                <p>Podemos ver como trabaja con un solo argumento.</p>
+                <pre><code><strong>function</strong> saludo(nombre) {
+                console.log(''.concat(<em>'Hola a '</em>, nombre));
+            }
+            
+            saludo(<em>'Daniela'</em>);</code></pre>
+
+                <p>Y si necesitáramos aumentar sus argumentos, separamos por comas.</p>
+                <pre><code><strong>function</strong> saludo(nombre, localidad) {
+                console.log(''.concat(<em>'Hola a '</em>, nombre, <em> 
+                ' desde '</em>, localidad));
+            }
+            
+            saludo(<em>'Daniela'</em>, <em>'Colombia'</em>);
+            // Hola a Daniela desde Colombia</code></pre>
+
+                <p>Argumentos por defecto</p>
+                <p>Puede darse la particularidad que su argumento sea opcional, o que disponga de un valor fijo si no es
+                    declarado.</p>
+                <pre><code><strong>function</strong> saludaA(nombre=<em>'todos'</em>) {
+                console.log(''.concat(<em>'Hola a '</em>, nombre));
+            }
+            
+            saludaA();
+            // Hola a todos
+            saludaA(<em>'Daniela'</em>);
+            // Hola a Daniela</code></pre><br>
+            </section>
+
+            <section class="main-section" id="array_de_argumentos">
+                <header>Array de Argumentos</header>
+                <p>¿Qué ocurre si no queremos restringir el número de argumentos? O dicho de otra manera: que nos puedan
+                    dar
+                    infinitos argumentos. Eso es posible, aunque nos creará un array (lo verémos más adelante).</p>
+
+                <pre><code><strong>function</strong> diasLibres(...dias) {
+                console.log(dias);
+            }
+            
+            diasLibres(<em>'Lunes'</em>, <em>'Jueves'</em>, <em>'Domingo'</em>);
+            // [<em>'Lunes'</em>, <em>'Jueves'</em>, <em>'Domingo'</em>]</code></pre><br>
+            </section>
+
+            <section class="main-section" id="return">
+                <header>Return</header>
+                <p>Las funciones que hemos tratado hasta ahora son cajas negras, ejecutan un código pero no recibimos
+                    una
+                    respuesta. Si queremos devolver alguna variable usaremos return.</p>
+                <p>En este ejemplo se nos suelta un string pero se pierde al no ser recogido.</p>
+                <pre><code><strong>function</strong> saluda() {
+                <strong>return</strong> <em>'Hola a todos'</em>;
+            }
+            
+            saluda();
+            //</code></pre>
+
+                <p>Ahora se guardara en una constante y a continuación se imprime.</p>
+                <pre><code><strong>const</strong> texto = saluda();
+
+                console.log(texto);
+                // Hola a todos</code></pre>
+
+                <p>Este mecanismo lo has experimentado de primera mano sin saberlo cuando has utilizado .concat() o
+                    .toUpperCase(). Son funciones que devuelven un string.</p>
+            </section>
+
+            <section class="main-section" id="anonimas">
+                <header>Anónimas</header>
+                <p>Al igual que una función puede devolver un string, integer, float o boolean… puede también dar una
+                    función. Solo debes omitir su alias.</p>
+                <pre><code>// Guardo la función en "miFuncion" para no perderla.
+                <strong>const</strong> miFuncion = <strong>function</strong>() {
+                    console.log(<em>'Soy anónima'</em>);	
+                };</code></pre>
+
+                <p>Lo ejecuto.</p>
+                <pre><code>miFuncion();
+
+                    // Soy anónima</code></pre><br>
+            </section>
+
+            <section class="main-section" id="funciones_especiales">
+                <header>Funciones Especiales</header>
+                <ul>
+                    <li><i class="fad fa-chevron-double-right"></i> <strong>alert()</strong>
+                        Muestra un modal de aviso y nativo.</li>
+                    <li><i class="fad fa-chevron-double-right"></i> <strong>prompt()</strong>
+                        Muestra un modal donde el usuario puede introducir texto.</li>
+                    <li><i class="fad fa-chevron-double-right"></i> <strong>setTimeout()</strong>
+                        Ejecuta una función (anónima) con retardo.
+                    </li>
+                    <li><i class="fad fa-chevron-double-right"></i> <strong>setInterval()</strong>
+                        Ejecuta una función (anónima) cada cierto tiempo.</li>
+                    <li><i class="fad fa-chevron-double-right"></i> <strong>clearInterval()</strong>
+                        Cancela una función (anónima) que inició setInterval().</li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+
+</html>
